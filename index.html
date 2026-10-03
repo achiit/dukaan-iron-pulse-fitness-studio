@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Iron Pulse Fitness Studio, a premium gym in Scheme 54, Vijay Nagar, Indore. Strength, CrossFit, cardio, Zumba, yoga and personal training. Book a free 3-day trial pass.">
+<title>Iron Pulse Fitness Studio | Premium Gym in Vijay Nagar, Indore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1B1C1E;
+    --surface: #242629;
+    --surface-2: #2E3034;
+    --line: #3C3F44;
+    --text: #ECE9E1;
+    --muted: #A9ACB1;
+    --volt: #D2FF1E;
+    --volt-ink: #172000;
+    --wa: #25D366;
+    --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --body: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --pad: clamp(1.25rem, 5vw, 4rem);
+    box-sizing: border-box;
+    color-scheme: dark;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 5rem); -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 0.95; margin: 0; text-transform: uppercase; letter-spacing: 0.005em; }
+  p { margin: 0; }
+  :focus-visible { outline: 3px solid var(--volt); outline-offset: 3px; }
+  .skip { position: absolute; left: -999px; top: 0.5rem; background: var(--volt); color: var(--volt-ink); padding: 0.6rem 1rem; z-index: 100; font-weight: 700; }
+  .skip:focus { left: 0.5rem; }
+
+  .wrap { width: 100%; max-width: 76rem; margin-inline: auto; padding-inline: var(--pad); }
+  section { padding-block: clamp(4.5rem, 10vw, 8rem); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+    font: 700 1rem/1 var(--body);
+    padding: 1.05rem 1.6rem;
+    border-radius: 3px;
+    border: 2px solid var(--volt);
+    background: var(--volt); color: var(--volt-ink);
+    text-decoration: none; cursor: pointer;
+    transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 0 -2px rgba(210,255,30,.28); }
+  .btn:active { transform: translateY(0); box-shadow: none; }
+  .btn.ghost { background: transparent; color: var(--text); border-color: var(--line); }
+  .btn.ghost:hover { border-color: var(--volt); box-shadow: none; }
+  .btn.wa { background: var(--wa); border-color: var(--wa); color: #06220f; }
+  .btn.wa:hover { box-shadow: 0 8px 0 -2px rgba(37,211,102,.3); }
+  .btn.sm { padding: 0.7rem 1.1rem; font-size: 0.95rem; }
+
+  /* Header */
+  header.top {
+    position: sticky; top: 0; z-index: 50;
+    padding-top: env(safe-area-inset-top, 0px);
+    background: rgba(27,28,30,.86);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 4.25rem; }
+  .logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; font-family: var(--display); font-weight: 900; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.02em; }
+  .logo svg { width: 2rem; height: 1.25rem; }
+  .logo small { font-family: var(--body); font-size: 0.7rem; font-weight: 600; color: var(--muted); letter-spacing: 0.02em; text-transform: none; display: block; line-height: 1; margin-top: 0.15rem; }
+  nav.links { display: flex; gap: 2rem; }
+  nav.links a { text-decoration: none; font-weight: 600; font-size: 0.95rem; color: var(--muted); transition: color .15s; }
+  nav.links a:hover { color: var(--text); }
+  @media (max-width: 760px) { nav.links { display: none; } .logo small { display: none; } }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: calc(100svh - 4.25rem);
+    display: flex; flex-direction: column; justify-content: center;
+    padding-block: 4rem 9rem;
+    background:
+      radial-gradient(60rem 30rem at 85% 20%, rgba(210,255,30,.10), transparent 60%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,.028) 0 2px, transparent 2px 22px),
+      var(--bg);
+  }
+  .plates { position: absolute; right: -14vw; top: 50%; transform: translateY(-50%); width: min(62vw, 46rem); aspect-ratio: 1; opacity: .9; pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 2; }
+  .hero h1 { font-size: clamp(3.4rem, 11.5vw, 9.5rem); font-weight: 900; max-width: 12ch; }
+  .hero h1 .ln { display: block; overflow: hidden; padding-bottom: 0.04em; }
+  .hero h1 .ln > span { display: block; transform: translateY(105%); animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards; }
+  .hero h1 .ln:nth-child(2) > span { animation-delay: .12s; }
+  .hero h1 .ln:nth-child(3) > span { animation-delay: .24s; }
+  .hero p.sub { max-width: 34rem; margin-top: 1.75rem; font-size: clamp(1.05rem, 2.2vw, 1.25rem); color: var(--muted); opacity: 0; animation: fade .8s .55s forwards; }
+  .hero .cta { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 0.9rem; opacity: 0; animation: fade .8s .7s forwards; }
+  .hero .loc { margin-top: 1.4rem; font-size: 0.95rem; color: var(--muted); opacity: 0; animation: fade .8s .85s forwards; }
+  @keyframes rise { to { transform: none; } }
+  @keyframes fade { to { opacity: 1; } }
+
+  .pulse { position: absolute; left: 0; right: 0; bottom: 2.5rem; height: 5.5rem; z-index: 1; }
+  .pulse svg { width: 100%; height: 100%; overflow: visible; }
+  .pulse .base { stroke: var(--line); stroke-width: 1.5; fill: none; }
+  .pulse .beat { stroke: var(--volt); stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 0.16 1; stroke-dashoffset: 0.16; filter: drop-shadow(0 0 6px rgba(210,255,30,.8)); animation: travel 3.6s 1.2s cubic-bezier(.45,.05,.4,.95) infinite; }
+  @keyframes travel { 0% { stroke-dashoffset: 0.16; } 100% { stroke-dashoffset: -1; } }
+
+  /* About */
+  .about { border-top: 1px solid var(--line); }
+  .about .grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+  .about h2 { font-size: clamp(2.6rem, 6vw, 5rem); }
+  .about .lead { margin-top: 1.5rem; max-width: 34rem; color: var(--muted); font-size: 1.15rem; }
+  .facts { border-top: 1px solid var(--line); }
+  .fact { padding: 1.6rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr; gap: 0.35rem; }
+  .fact b { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 4vw, 2.9rem); text-transform: uppercase; line-height: 1; }
+  .fact:first-child b { color: var(--volt); font-size: clamp(3.4rem, 8vw, 6rem); }
+  .fact span { color: var(--muted); max-width: 28rem; }
+  @media (max-width: 860px) { .about .grid { grid-template-columns: 1fr; } }
+
+  /* Workouts */
+  .work { background: var(--surface); border-block: 1px solid var(--line); }
+  .head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .head h2 { font-size: clamp(2.6rem, 6vw, 5rem); }
+  .head p { max-width: 26rem; color: var(--muted); }
+  .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+  .card { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: clamp(1.4rem, 3vw, 2.2rem); display: flex; flex-direction: column; gap: 0.9rem; min-height: 15rem; transition: border-color .2s, transform .2s; }
+  .card:hover { border-color: var(--volt); transform: translateY(-3px); }
+  .card svg.ic { width: 2.6rem; height: 2.6rem; stroke: var(--volt); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .card h3 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
+  .card p { color: var(--muted); max-width: 30rem; }
+  .card .tags { margin-top: auto; padding-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .card .tags span { font-size: 0.82rem; font-weight: 600; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 99px; color: var(--text); }
+  .c-strength { grid-column: span 7; background: var(--volt); border-color: var(--volt); color: var(--volt-ink); min-height: 21rem; }
+  .c-strength svg.ic { stroke: var(--volt-ink); width: 3.4rem; height: 3.4rem; }
+  .c-strength p { color: #2d3a05; font-size: 1.1rem; }
+  .c-strength h3 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+  .c-strength .tags span { border-color: rgba(23,32,0,.35); color: var(--volt-ink); }
+  .c-strength:hover { border-color: var(--text); }
+  .c-cross { grid-column: span 5; }
+  .c-cardio, .c-zy, .c-pt { grid-column: span 4; }
+  @media (max-width: 900px) {
+    .c-strength, .c-cross { grid-column: span 12; }
+    .c-cardio, .c-zy { grid-column: span 6; }
+    .c-pt { grid-column: span 12; }
+  }
+  @media (max-width: 600px) { .c-cardio, .c-zy { grid-column: span 12; } .card { min-height: 0; } }
+
+  /* Pricing */
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+  .plan { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 2rem; display: flex; flex-direction: column; gap: 1.2rem; position: relative; }
+  .plan h3 { font-size: 2rem; }
+  .price { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+  .price b { font-family: var(--display); font-weight: 900; font-size: clamp(3rem, 5vw, 4.2rem); line-height: 1; }
+  .price span { color: var(--muted); font-weight: 600; }
+  .permonth { color: var(--muted); font-size: 0.95rem; margin-top: -0.6rem; }
+  .plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+  .plan li { display: grid; grid-template-columns: 1.2rem 1fr; gap: 0.6rem; font-size: 0.98rem; }
+  .plan li svg { width: 1.2rem; height: 1.2rem; stroke: var(--volt); fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; margin-top: 0.2rem; }
+  .plan .btn { margin-top: auto; }
+  .plan.best { border: 2px solid var(--volt); background: linear-gradient(180deg, rgba(210,255,30,.08), var(--surface) 55%); transform: translateY(-0.75rem); }
+  .plan .flag { position: absolute; top: -0.85rem; left: 2rem; background: var(--volt); color: var(--volt-ink); font-weight: 800; font-size: 0.82rem; padding: 0.3rem 0.7rem; border-radius: 3px; }
+  .fine { margin-top: 1.75rem; color: var(--muted); font-size: 0.95rem; }
+  @media (max-width: 900px) { .plans { grid-template-columns: 1fr; } .plan.best { transform: none; order: -1; } }
+
+  /* Contact */
+  .contact { background: var(--surface); border-top: 1px solid var(--line); }
+  .contact .grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+  .contact h2 { font-size: clamp(2.6rem, 6vw, 5rem); }
+  .info { margin-top: 2rem; display: grid; gap: 1.6rem; }
+  .info h3 { font-family: var(--body); font-weight: 700; font-size: 1rem; text-transform: none; letter-spacing: 0; margin-bottom: 0.35rem; color: var(--volt); line-height: 1.3; }
+  .info address { font-style: normal; color: var(--text); }
+  table.hours { border-collapse: collapse; width: 100%; max-width: 24rem; }
+  table.hours td { padding: 0.35rem 0; border-bottom: 1px solid var(--line); }
+  table.hours td:last-child { text-align: right; color: var(--muted); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.4rem; }
+  form.f { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: clamp(1.4rem, 3vw, 2.2rem); display: grid; gap: 1.1rem; }
+  form.f h3 { font-size: 2rem; }
+  label { display: grid; gap: 0.4rem; font-weight: 600; font-size: 0.95rem; }
+  input, select, textarea {
+    font: inherit; color: var(--text); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 3px; padding: 0.85rem 0.9rem; width: 100%;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  textarea { min-height: 6.5rem; resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--volt); box-shadow: 0 0 0 3px rgba(210,255,30,.2); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+  .msg { min-height: 1.4rem; font-size: 0.95rem; color: var(--volt); }
+  .msg.err { color: #ff8a6b; }
+  @media (max-width: 860px) { .contact .grid { grid-template-columns: 1fr; } }
+
+  footer { padding-block: 2rem calc(2rem + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); color: var(--muted); font-size: 0.92rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition: none !important; }
+    .hero h1 .ln > span, .hero p.sub, .hero .cta, .hero .loc { transform: none; opacity: 1; }
+    .pulse .beat { stroke-dasharray: none; stroke-dashoffset: 0; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Iron Pulse Fitness Studio, home">
+      <svg viewBox="0 0 32 20" fill="none" stroke="#D2FF1E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 11h7l3-8 5 15 3-7h12"/></svg>
+      <span>Iron Pulse<small>Fitness Studio, Vijay Nagar</small></span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#workouts">Workouts</a>
+      <a href="#plans">Plans</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn sm" href="#contact" data-interest="Free 3-day trial pass">Free trial pass</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <svg class="plates" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+      <circle cx="200" cy="200" r="196" stroke="#3C3F44" stroke-width="2"/>
+      <circle cx="200" cy="200" r="168" stroke="#3C3F44" stroke-width="14" opacity=".55"/>
+      <circle cx="200" cy="200" r="132" stroke="#3C3F44" stroke-width="2"/>
+      <circle cx="200" cy="200" r="104" stroke="#D2FF1E" stroke-width="2" opacity=".55"/>
+      <circle cx="200" cy="200" r="46" fill="#242629" stroke="#3C3F44" stroke-width="2"/>
+      <circle cx="200" cy="200" r="14" fill="#1B1C1E" stroke="#D2FF1E" stroke-width="2"/>
+    </svg>
+    <div class="wrap">
+      <h1>
+        <span class="ln"><span>Transform</span></span>
+        <span class="ln"><span>Your Body at</span></span>
+        <span class="ln"><span>Indore's Premier Gym</span></span>
+      </h1>
+      <p class="sub">Heavy iron, expert coaching and a floor built for results. Train at Iron Pulse Fitness Studio in Vijay Nagar.</p>
+      <div class="cta">
+        <a class="btn" href="#contact" data-interest="Free 3-day trial pass">Book Free 3-Day Trial Pass</a>
+        <a class="btn ghost" href="#plans">See membership plans</a>
+      </div>
+      <p class="loc">Scheme 54, Vijay Nagar, Indore</p>
+    </div>
+    <div class="pulse" aria-hidden="true">
+      <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+        <path class="base" d="M0 45H380l16-4 14 4h30l14-34 22 74 22-60 12 20h60l14-5 14 5H1200" vector-effect="non-scaling-stroke"/>
+        <path class="beat" pathLength="1" d="M0 45H380l16-4 14 4h30l14-34 22 74 22-60 12 20h60l14-5 14 5H1200" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap grid">
+      <div>
+        <h2>Built for people who train seriously</h2>
+        <p class="lead">Iron Pulse Fitness Studio is a spacious, well-equipped gym in Vijay Nagar, Indore. Whether you're lifting for the first time or chasing a new personal best, you get the room, the equipment and the coaching to keep progressing.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>5000+ sq. ft.</b><span>Open training floor with separate zones for lifting, functional work, cardio and group classes.</span></div>
+        <div class="fact"><b>Certified trainers</b><span>Qualified coaches who correct your form, plan your progression and keep you accountable.</span></div>
+        <div class="fact"><b>World-class equipment</b><span>Racks, plates, machines and conditioning gear that stay maintained and ready.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="workouts">
+    <div class="wrap">
+      <div class="head">
+        <h2>Pick your workout</h2>
+        <p>Five ways to train under one roof. Your membership covers the floor, and classes run on a fixed weekly timetable.</p>
+      </div>
+      <div class="bento">
+        <article class="card c-strength">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></svg>
+          <h3>Strength training</h3>
+          <p>Power racks, free weights and plate-loaded machines for building real muscle and real strength, with programs for every level.</p>
+          <div class="tags"><span>Free weights</span><span>Power racks</span><span>Machines</span></div>
+        </article>
+        <article class="card c-cross">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="15" r="5.5"/></svg>
+          <h3>CrossFit zone</h3>
+          <p>Kettlebells, battle ropes, rigs and boxes for high-intensity, coach-led sessions that test everything you've got.</p>
+          <div class="tags"><span>Coach-led</span><span>HIIT</span></div>
+        </article>
+        <article class="card c-cardio">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h5l2.5-6 5 12 2.5-6H22"/></svg>
+          <h3>Cardio</h3>
+          <p>Treadmills, bikes, rowers and cross-trainers to build stamina and burn fat.</p>
+          <div class="tags"><span>Treadmills</span><span>Rowers</span></div>
+        </article>
+        <article class="card c-zy">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><path d="M12 7.5v6M5 10l7 2 7-2M8.5 21l3.5-7.5 3.5 7.5"/></svg>
+          <h3>Zumba and yoga</h3>
+          <p>Dance-led cardio and mindful yoga sessions for energy, flexibility and recovery.</p>
+          <div class="tags"><span>Group classes</span><span>All levels</span></div>
+        </article>
+        <article class="card c-pt">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg>
+          <h3>Personal training</h3>
+          <p>One-on-one coaching with a plan built around your body, goal and schedule.</p>
+          <div class="tags"><span>One-on-one</span><span>Custom plan</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <div class="wrap">
+      <div class="head">
+        <h2>Membership plans</h2>
+        <p>Pick a plan and start training. The longer you commit, the less you pay per month.</p>
+      </div>
+      <div class="plans">
+        <article class="plan">
+          <h3>Monthly</h3>
+          <div class="price"><b>₹2,500</b><span>/ month</span></div>
+          <p class="permonth">Pay month to month. Cancel any time.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Full gym floor access</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Zumba and yoga classes</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Trainer guidance on the floor</li>
+          </ul>
+          <a class="btn ghost" href="#contact" data-interest="Monthly plan (₹2,500)">Choose monthly</a>
+        </article>
+
+        <article class="plan">
+          <h3>Quarterly</h3>
+          <div class="price"><b>₹6,500</b><span>/ 3 months</span></div>
+          <p class="permonth">About ₹2,167 a month. Save ₹1,000.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Everything in Monthly</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Body assessment at joining</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Starter workout plan</li>
+          </ul>
+          <a class="btn ghost" href="#contact" data-interest="Quarterly plan (₹6,500)">Choose quarterly</a>
+        </article>
+
+        <article class="plan best">
+          <span class="flag">Best value: save ₹14,000</span>
+          <h3>Annual</h3>
+          <div class="price"><b>₹16,000</b><span>/ year</span></div>
+          <p class="permonth">About ₹1,333 a month.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Everything in Quarterly</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Two personal training sessions</li>
+            <li><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>Progress check-ins every quarter</li>
+          </ul>
+          <a class="btn" href="#contact" data-interest="Annual plan (₹16,000)">Choose annual</a>
+        </article>
+      </div>
+      <p class="fine">Not sure yet? Book the free 3-day trial pass and train with us before you decide.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap grid">
+      <div>
+        <h2>Come train with us</h2>
+        <div class="info">
+          <div>
+            <h3>Address</h3>
+            <address>Iron Pulse Fitness Studio<br>Scheme 54, Vijay Nagar<br>Indore, Madhya Pradesh 452010</address>
+          </div>
+          <div>
+            <h3>Opening hours</h3>
+            <table class="hours">
+              <tr><td>Monday to Saturday</td><td>5:30 am to 10:30 pm</td></tr>
+              <tr><td>Sunday</td><td>7:00 am to 1:00 pm</td></tr>
+            </table>
+          </div>
+          <div class="actions">
+            <a class="btn wa" id="waDirect" href="#" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.43 15.1L2 22l5.04-1.58A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 1 1-4.2 15.03l-.3-.18-3 .94.98-2.92-.2-.31A8.1 8.1 0 0 1 12.04 3.8zm-3 3.9c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5s1.07 2.9 1.22 3.1c.15.2 2.07 3.3 5.1 4.5 2.5 1 3.03.8 3.57.75.55-.05 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.4-1.5-.9-.8-1.5-1.77-1.67-2.07-.17-.3-.02-.47.13-.62.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.2-.24-.58-.48-.5-.67-.5z"/></svg>
+              Chat on WhatsApp
+            </a>
+            <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Scheme+54+Vijay+Nagar+Indore" target="_blank" rel="noopener">Get directions</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="f" id="leadForm" novalidate>
+        <h3>Book your free trial</h3>
+        <div class="row">
+          <label>Name
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>Phone number
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required placeholder="10-digit mobile number">
+          </label>
+        </div>
+        <label>I'm interested in
+          <select name="interest" id="interest">
+            <option>Free 3-day trial pass</option>
+            <option>Monthly plan (₹2,500)</option>
+            <option>Quarterly plan (₹6,500)</option>
+            <option>Annual plan (₹16,000)</option>
+            <option>Personal training</option>
+          </select>
+        </label>
+        <label>Message (optional)
+          <textarea name="message" placeholder="Tell us your goal, for example fat loss or muscle gain."></textarea>
+        </label>
+        <button class="btn" type="submit">Send on WhatsApp</button>
+        <p class="msg" id="formMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Iron Pulse Fitness Studio. Scheme 54, Vijay Nagar, Indore.</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script>
+  // Replace with the gym's WhatsApp number: country code + number, digits only.
+  var WA_NUMBER = "919999999999";
+
+  function waLink(text) {
+    return "https://wa.me/" + WA_NUMBER + (text ? "?text=" + encodeURIComponent(text) : "");
+  }
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  document.getElementById("waDirect").href = waLink("Hi Iron Pulse Fitness Studio, I'd like to know more about membership.");
+
+  // Buttons that preselect an option in the form
+  var interest = document.getElementById("interest");
+  document.querySelectorAll("[data-interest]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      var v = el.getAttribute("data-interest");
+      for (var i = 0; i < interest.options.length; i++) {
+        if (interest.options[i].text === v) { interest.selectedIndex = i; break; }
+      }
+    });
+  });
+
+  // Form sends the details to WhatsApp as a ready-to-send message
+  var form = document.getElementById("leadForm");
+  var msg = document.getElementById("formMsg");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var phone = form.phone.value.replace(/[^0-9+]/g, "");
+    msg.className = "msg";
+    if (!name) { msg.className = "msg err"; msg.textContent = "Enter your name."; form.name.focus(); return; }
+    if (phone.replace(/\D/g, "").length < 10) { msg.className = "msg err"; msg.textContent = "Enter a valid 10-digit phone number."; form.phone.focus(); return; }
+    var text = "Hi Iron Pulse Fitness Studio, I'm " + name + " (" + phone + "). I'm interested in: " + form.interest.value + "." +
+      (form.message.value.trim() ? " " + form.message.value.trim() : "");
+    msg.textContent = "Opening WhatsApp with your details. Press send to finish.";
+    window.open(waLink(text), "_blank", "noopener");
+  });
+</script>
+</body>
+</html>
